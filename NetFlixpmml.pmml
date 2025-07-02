@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PMML version="4.2" xmlns="http://www.dmg.org/PMML-4_2">
+  <Header copyright="natsa">
+    <Application name="KNIME" version="5.4.3"/>
+  </Header>
+  <DataDictionary numberOfFields="10">
+    <DataField name="type" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="release_year" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="rating" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="duration" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="International Movies" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="International TV Shows" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="Dramas" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="Comedies" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="Documentaries" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="Action &amp; Adventure" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+  </DataDictionary>
+  <ClusteringModel modelName="k-means" functionName="clustering" modelClass="centerBased" numberOfClusters="4">
+    <MiningSchema>
+      <MiningField name="type" invalidValueTreatment="asIs"/>
+      <MiningField name="release_year" invalidValueTreatment="asIs"/>
+      <MiningField name="rating" invalidValueTreatment="asIs"/>
+      <MiningField name="duration" invalidValueTreatment="asIs"/>
+      <MiningField name="International Movies" invalidValueTreatment="asIs"/>
+      <MiningField name="International TV Shows" invalidValueTreatment="asIs"/>
+      <MiningField name="Dramas" invalidValueTreatment="asIs"/>
+      <MiningField name="Comedies" invalidValueTreatment="asIs"/>
+      <MiningField name="Documentaries" invalidValueTreatment="asIs"/>
+      <MiningField name="Action &amp; Adventure" invalidValueTreatment="asIs"/>
+    </MiningSchema>
+    <ComparisonMeasure kind="distance">
+      <squaredEuclidean/>
+    </ComparisonMeasure>
+    <ClusteringField field="type" compareFunction="absDiff"/>
+    <ClusteringField field="release_year" compareFunction="absDiff"/>
+    <ClusteringField field="rating" compareFunction="absDiff"/>
+    <ClusteringField field="duration" compareFunction="absDiff"/>
+    <ClusteringField field="International Movies" compareFunction="absDiff"/>
+    <ClusteringField field="International TV Shows" compareFunction="absDiff"/>
+    <ClusteringField field="Dramas" compareFunction="absDiff"/>
+    <ClusteringField field="Comedies" compareFunction="absDiff"/>
+    <ClusteringField field="Documentaries" compareFunction="absDiff"/>
+    <ClusteringField field="Action &amp; Adventure" compareFunction="absDiff"/>
+    <Cluster name="cluster_0" size="2630">
+      <Array n="10" type="real">0.0 0.9192094423320628 0.5393536121673004 0.28661865929847274 0.0 0.0 0.2718631178707224 0.0 0.21673003802281368 0.13193916349809887 </Array>
+    </Cluster>
+    <Cluster name="cluster_1" size="2624">
+      <Array n="10" type="real">0.0 0.9232485391260148 0.5806974085365854 0.35196626735158076 1.0 0.0 0.5651676829268293 0.30640243902439024 0.11280487804878049 0.15167682926829268 </Array>
+    </Cluster>
+    <Cluster name="cluster_2" size="1404">
+      <Array n="10" type="real">0.38461538461538464 0.9191966405508057 0.4780982905982906 0.1886594113282215 0.0 0.14245014245014245 0.20797720797720798 1.0 0.0014245014245014246 0.09757834757834757 </Array>
+    </Cluster>
+    <Cluster name="cluster_3" size="2133">
+      <Array n="10" type="real">1.0 0.9547292545710293 0.5174636661978435 0.002092368733257669 0.0 0.5391467416783873 0.326769807782466 0.01875293014533521 0.0 0.06704172526957337 </Array>
+    </Cluster>
+  </ClusteringModel>
+</PMML>

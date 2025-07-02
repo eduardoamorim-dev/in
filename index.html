@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema de Recomendação - Netflix Style</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🎬 Sistema de Recomendação</h1>
+        <p>
+          Descubra filmes e séries similares baseado em análise de clusters
+          K-means
+        </p>
+      </div>
+
+      <div class="form-container">
+        <form id="recommendationForm">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="title">Nome do Filme/Série:</label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                placeholder="Ex: Stranger Things"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="type">Tipo:</label>
+              <select id="type" name="type" required>
+                <option value="">Selecione...</option>
+                <option value="0">Filme</option>
+                <option value="1">Série</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="release_year">Ano de Lançamento:</label>
+              <input
+                type="number"
+                id="release_year"
+                name="release_year"
+                min="1925"
+                max="2025"
+                placeholder="Ex: 2023"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="rating">Classificação Etária:</label>
+              <select id="rating" name="rating" required>
+                <option value="">Selecione...</option>
+                <option value="0">G / TV-Y (Livre)</option>
+                <option value="1">PG / TV-G / TV-Y7 / PG-13 (10+)</option>
+                <option value="2">TV-14 (14+)</option>
+                <option value="3">R / TV-MA / NC-17 (18+)</option>
+                <option value="4">NR / UR (Não Classificado)</option>
+                <option value="5">Outros</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="duration">Duração:</label>
+              <input
+                type="number"
+                id="duration"
+                name="duration"
+                min="1"
+                max="500"
+                placeholder="Minutos (filme) ou Temporadas (série)"
+                required
+              />
+            </div>
+
+            <div class="genres-container">
+              <label>Gêneros:</label>
+              <div class="genres-grid">
+                <div class="genre-checkbox">
+                  <input
+                    type="checkbox"
+                    id="international_movies"
+                    name="genres"
+                    value="international_movies"
+                  />
+                  <label for="international_movies"
+                    >Filmes Internacionais</label
+                  >
+                </div>
+                <div class="genre-checkbox">
+                  <input
+                    type="checkbox"
+                    id="international_tv"
+                    name="genres"
+                    value="international_tv"
+                  />
+                  <label for="international_tv">Séries Internacionais</label>
+                </div>
+                <div class="genre-checkbox">
+                  <input
+                    type="checkbox"
+                    id="dramas"
+                    name="genres"
+                    value="dramas"
+                  />
+                  <label for="dramas">Dramas</label>
+                </div>
+                <div class="genre-checkbox">
+                  <input
+                    type="checkbox"
+                    id="comedies"
+                    name="genres"
+                    value="comedies"
+                  />
+                  <label for="comedies">Comédias</label>
+                </div>
+                <div class="genre-checkbox">
+                  <input
+                    type="checkbox"
+                    id="documentaries"
+                    name="genres"
+                    value="documentaries"
+                  />
+                  <label for="documentaries">Documentários</label>
+                </div>
+                <div class="genre-checkbox">
+                  <input
+                    type="checkbox"
+                    id="action_adventure"
+                    name="genres"
+                    value="action_adventure"
+                  />
+                  <label for="action_adventure">Ação & Aventura</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn">🔍 Encontrar Recomendações</button>
+        </form>
+      </div>
+
+      <div id="results" class="results-container">
+        <div id="clusterInfo" class="cluster-info"></div>
+        <div id="recommendations" class="recommendations"></div>
+      </div>
+    </div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
